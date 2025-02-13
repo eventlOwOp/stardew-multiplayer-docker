@@ -38,8 +38,8 @@ jobs:
           context: ./docker
           file: ./docker/Dockerfile
           push: true
-          tags: 1.6.15
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: 1.16.5
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
