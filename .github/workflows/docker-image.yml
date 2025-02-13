@@ -29,13 +29,13 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: eventlOwOp/stardew-server
+          images: eventlowop/stardew-server
 
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: .
+          context: ./docker
           file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
@@ -44,6 +44,6 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: eventlOwOp/stardew-server
+          subject-name: eventlowop/stardew-server
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
