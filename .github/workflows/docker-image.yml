@@ -38,7 +38,7 @@ jobs:
           context: ./docker
           file: ./docker/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: 1.6.15
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
